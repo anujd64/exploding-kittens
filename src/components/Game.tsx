@@ -72,7 +72,7 @@ export default function Game() {
 
   
   return (
-    <div className="flex flex-row">
+    <div className="flex lg:flex-row flex-col">
 
 <div className="flex flex-col items-center justify-center content-center">
         <Modal
@@ -85,7 +85,7 @@ export default function Game() {
           <Modal.Body>
             <div className="flex flex-col items-center justify-center content-center gap-5 m-auto">
               <input
-                className="w-1/6 p-4 m-auto text-xl rounded-2xl"
+                className="lg:w-1/6 w-1/2 p-4 m-auto text-xl rounded-2xl"
                 placeholder="name"
                 type="name"
                 defaultChecked
@@ -103,13 +103,13 @@ export default function Game() {
           </Modal.Body>
         </Modal>
       </div>
-      <div className="w-3/4 flex flex-col items-center content-center gap-5 p-5">
+      <div className="lg:w-3/4 w-full flex flex-col items-center content-center gap-5 p-5">
         <h1 className="text-4xl font-bold p-5">Exploding Kittens Game</h1>
 
         <div className="flex flex-row flex-wrap justify-center gap-4">
           {game.deck &&
             game.deck.map((card, index) => (
-              <div className="group h-40 w-40 [perspective:1000px]">
+              <div className="group lg:h-40 lg:w-40 w-28 h-28 [perspective:1000px]">
                 <div
                   className={cn(
                     "relative h-full w-full shadow-xl transition-all duration-500 [transform-style:preserve-3d]",
@@ -119,10 +119,10 @@ export default function Game() {
                   )}
                 >
                   <div
-                    className="absolute inset-0 p-8 bg-zinc-600 bg-opacity-10 rounded-xl"
+                    className="absolute inset-0 lg:p-8 p-4 bg-zinc-600 bg-opacity-10 rounded-xl"
                     onClick={() => revealCardLocal(index)}
                   ></div>
-                  <div className="absolute inset-0 h-full w-full cursor-grab rounded-xl bg-zinc-600 p-8 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                  <div className="absolute inset-0 h-full w-full cursor-grab rounded-xl bg-zinc-600 lg:p-8 p-4 [transform:rotateY(180deg)] [backface-visibility:hidden]">
                     <div className="flex flex-col justify-between h-full items-center content-center">
                       <p className="text-[#16453a] m-auto text-6xl font-light leading-5">
                         {game.deckRevealed[index] ? card : ""}

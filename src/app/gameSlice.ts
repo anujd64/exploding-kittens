@@ -134,7 +134,7 @@ export const getLeaderboard = createAsyncThunk(
 export const getScore = createAsyncThunk<any, User>(
     "score",
     async (user:User) => {
-        console.log("calling gs", JSON.stringify({username:user.username}) ,import.meta.env)
+        console.log("calling gs", JSON.stringify({username:user.username}))
         const response = await fetch(import.meta.env.VITE_API_URL+"/getScore",{method:'POST', body: JSON.stringify({username:user.username, score: user.score})})
         return response.json()
     }
