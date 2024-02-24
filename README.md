@@ -1,27 +1,25 @@
-# vite-template-redux
+# 😸 Exploding Kitten Game
 
-Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Testing Library](https://github.com/testing-library/react-testing-library) to create a modern [React](https://react.dev/) app compatible with [Create React App](https://create-react-app.dev/)
+Welcome to the Exploding Kitten game! This is an online single-player card game built using React, Redux, Golang, and Redis. The objective of the game is to draw cards from the deck without drawing the Exploding bomb card. 
 
-```sh
-npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
-```
+## 🎮 How to Play
 
-## Goals
+1. **Start Game**: Enter your username and start the game.
+2. **Draw Cards**: Click on the deck to draw a card. Keep drawing until you either win by drawing all non-exploding kitten cards or lose by drawing an exploding bomb.
+3. **Win or Lose**: If you draw all non-exploding cards, you win! Your win will be recorded in the leaderboard. If you draw an exploding kitten, you lose.
 
-- Easy migration from Create React App or Vite
-- As beginner friendly as Create React App
-- Optimized performance compared to Create React App
-- Customizable without ejecting
+## 🚀 Technologies Used
 
-## Scripts
+- **Frontend**: React, Redux, Typescript, Tailwind
+- **Backend**: Golang
+- **Database**: Redis
 
-- `dev`/`start` - start dev server and open browser
-- `build` - build for production
-- `preview` - locally preview production build
-- `test` - launch test runner
+### 🛠️ Setup
+**Frontend**: This is the front end repository
 
-## Inspiration
+**Backend**: Repository link will be added soon.
 
-- [Create React App](https://github.com/facebook/create-react-app/tree/main/packages/cra-template)
-- [Vite](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react)
-- [Vitest](https://github.com/vitest-dev/vitest/tree/main/examples/react-testing-lib)
+
+## 📊 Leaderboard
+
+The leaderboard records the number of games won by each player. One game won equals one point.

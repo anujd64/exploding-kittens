@@ -6,7 +6,7 @@ export default function SidebarComponent() {
   const game = useAppSelector((state: RootState) => state.gameReducer)
 
   return (
-    <div className="lg:w-1/4 w-full flex flex-col items-center content-center justify-center gap-3">
+    <div className="lg:w-1/4 w-full h-full flex flex-col items-center content-center justify-center gap-3">
       <div className="flex flex-col my-2 w-full p-4 content-center items-center gap-2 text-xl drop-shadow-xl rounded-lg bg-green-200">
         <div className="text-3xl font-bold">{game.username}'s stats</div>
         <div>Games Won: {game.score}</div>

@@ -70,6 +70,8 @@ export default function Game() {
     dispatch(setUsername({ name: text }))
   }
 
+  const [showHowTo, setShowHowTo] = useState(false);
+
   
   return (
     <div className="flex lg:flex-row flex-col">
@@ -103,7 +105,7 @@ export default function Game() {
           </Modal.Body>
         </Modal>
       </div>
-      <div className="lg:w-3/4 w-full flex flex-col items-center content-center gap-5 p-5">
+      <div className="lg:w-3/4 w-full h-full flex flex-col items-center content-center gap-5 p-5">
         <h1 className="text-4xl font-bold p-5">Exploding Kittens Game</h1>
 
         <div className="flex flex-row flex-wrap justify-center gap-4">
@@ -151,6 +153,18 @@ export default function Game() {
         {game.gameOver && <p className="font-bold text-3xl">Game Over!</p>}
 
         {game.gameWon && <p className="font-bold text-3xl"> You Won!</p>}
+
+        <div>
+          <p className="text-center bg-gray-200 rounded-lg p-3 select-none" onClick={()=>{setShowHowTo(!showHowTo)} }>How to Play!</p>
+          <ul className= {cn("",showHowTo ? "visible" : "hidden")}>
+            <li>Click on any of the cards and it will be revealed</li>
+            <li>If the card is:</li>
+            <li>😼 It will be removed from the deck</li>
+            <li>💣 You lose, restart the game</li>
+            <li>🙅‍♂️ If found before the bomb, you win</li>
+            <li>🔀 Resets the game</li>
+          </ul>
+        </div>
       </div>
       <SidebarComponent />
     </div>
