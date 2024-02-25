@@ -106,18 +106,18 @@ export default function Game() {
         </Modal>
       </div>
       <div className="lg:w-3/4 w-full h-full flex flex-col items-center content-center gap-5 p-5">
-        <h1 className="text-4xl font-bold p-5">Exploding Kittens Game</h1>
+        <h1 className="lg:text-4xl md:text-4xl text-2xl font-bold p-5">Exploding Kittens Game</h1>
 
         <div className="flex flex-row flex-wrap justify-center gap-4">
           {game.deck &&
             game.deck.map((card, index) => (
-              <div className="group lg:h-40 lg:w-40 w-28 h-28 [perspective:1000px]">
+              <div className= {cn("group lg:h-40 lg:w-40 w-28 h-28 [perspective:1000px]",game.gameOver || game.gameWon ? "pointer-events-none" : "pointer-events-auto")}>
                 <div
                   className={cn(
-                    "relative h-full w-full shadow-xl transition-all duration-500 [transform-style:preserve-3d]",
+                    "relative h-full w-full shadow-xl transition-all rounded-xl duration-500 [transform-style:preserve-3d]",
                     game.deckRevealed[index] === true
                       ? "[transform:rotateY(180deg)]"
-                      : "",
+                      : ""
                   )}
                 >
                   <div
@@ -141,7 +141,7 @@ export default function Game() {
           onClick={handleRestartGame}
         >
           {game.deck.length === 5 && !game.gameOver
-            ? "Start Game"
+            ? "Start clicking cards!"
             : "Restart Game"}
         </button>
         {game.diffuserDiscovered && (
@@ -154,9 +154,9 @@ export default function Game() {
 
         {game.gameWon && <p className="font-bold text-3xl"> You Won!</p>}
 
-        <div>
-          <p className="text-center bg-gray-200 rounded-lg p-3 select-none" onClick={()=>{setShowHowTo(!showHowTo)} }>How to Play!</p>
-          <ul className= {cn("",showHowTo ? "visible" : "hidden")}>
+        <div className="flex content-center flex-col">
+          <p className="text-center bg-gray-200 rounded-lg p-3 select-none w-fit self-center drop-shadow-xl" onClick={()=>{setShowHowTo(!showHowTo)} }>How to Play!</p>
+          <ul className= {cn("border p-4 rounded-lg m-4",showHowTo ? "visible" : "hidden")}>
             <li>Click on any of the cards and it will be revealed</li>
             <li>If the card is:</li>
             <li>😼 It will be removed from the deck</li>
